@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch('http://localhost:8000/reports/');
+        const response = await fetch('https://justicore-backend.onrender.com/reports/');
         if (response.ok) {
           const data = await response.json();
           setReports(data.reverse()); // Show newest first

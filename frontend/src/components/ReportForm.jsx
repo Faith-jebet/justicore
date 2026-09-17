@@ -16,7 +16,7 @@ const ReportForm = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('http://localhost:8000/reports/', {
+      const response = await fetch('https://justicore-backend.onrender.com/reports/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
