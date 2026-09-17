@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Depends, HTTPException, Form
 from fastapi.responses import PlainTextResponse
 from sqlalchemy.orm import Session
-from . import models, schemas
-from .database import engine, get_db
+import models, schemas
+from database import engine, get_db
 from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=engine)

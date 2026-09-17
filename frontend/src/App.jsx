@@ -1,52 +1,49 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ReportForm from './components/ReportForm';
 import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-primary-500 selection:text-white">
+      <div className="min-h-screen bg-cream flex flex-col font-sans selection:bg-primary-500 selection:text-white relative overflow-hidden">
+        
+        {/* Soft Orange Glowing Background Orbs */}
+        <div className="absolute top-0 -left-20 w-96 h-96 bg-primary-100 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-100 rounded-full mix-blend-multiply filter blur-[120px] opacity-60 pointer-events-none"></div>
+
         {/* Navigation Bar */}
-        <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/50 shadow-sm">
+        <nav className="glass-panel sticky top-0 z-50 border-b border-white/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
+            <div className="flex justify-between h-[72px]">
               <div className="flex items-center space-x-3">
                 {/* Logo Gradient Icon */}
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 shadow-lg shadow-primary-500/30 flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 shadow-lg shadow-primary-500/20 flex items-center justify-center text-white font-extrabold text-xl">
                   J
                 </div>
-                <Link to="/" className="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-700 to-slate-800">
-                  Justicore
+                <Link to="/" className="text-2xl font-extrabold text-slate-800 tracking-tight">
+                  Justi<span className="text-primary-600">core</span>
                 </Link>
               </div>
-              <div className="flex items-center space-x-6">
-                <Link to="/" className="text-sm font-semibold text-slate-600 hover:text-primary-600 transition-colors duration-200">
+              <div className="flex items-center space-x-8">
+                <Link to="/" className="text-sm font-bold text-slate-500 hover:text-primary-600 transition-colors duration-200">
                   Report Incident
                 </Link>
-                <Link to="/dashboard" className="text-sm font-semibold text-slate-600 hover:text-primary-600 transition-colors duration-200">
-                  Dashboard
-                </Link>
-                <button className="bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-2 px-5 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                <Link to="/login" className="bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5">
                   Sign In
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </nav>
 
         {/* Main Content Area */}
-        <main className="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 relative">
-          {/* Decorative background blob */}
-          <div className="absolute top-0 -left-4 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob pointer-events-none"></div>
-          <div className="absolute top-0 -right-4 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 pointer-events-none"></div>
-          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000 pointer-events-none"></div>
-
-          <div className="relative z-10">
-            <Routes>
-              <Route path="/" element={<ReportForm />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Routes>
-          </div>
+        <main className="flex-grow flex flex-col w-full relative z-10">
+          <Routes>
+            <Route path="/" element={<ReportForm />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
         </main>
       </div>
     </Router>
