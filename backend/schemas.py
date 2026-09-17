@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-from .models import RoleEnum, ReportStatus
+from models import RoleEnum, ReportStatus
 
 class UserBase(BaseModel):
     username: str
